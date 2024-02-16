@@ -1,11 +1,17 @@
+import { logo } from "./logo";
+
 export const docDefinition = {
     content: [
-      { text: "This is a header for matriz 8 a 9", style: "header" },
-      "No styling here, this is a standard paragraph",
+        {
+            image: logo,
+            width: 200,
+            alignment: 'left'
+        },
+      { text: "Reporte de Calificaciones", style: "header", alignment: 'center' },
       { text: "Another text", style: "anotherStyle" },
       { text: "Multiple styles applied", style: ["header", "anotherStyle"] },
     ],
-
+    pageOrientation: 'landscape',
     styles: {
       header: {
         fontSize: 22,

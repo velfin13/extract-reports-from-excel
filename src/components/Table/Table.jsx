@@ -3,7 +3,7 @@ import "./table.css";
 
 export const Table = ({ excelData = [] }) => {
   return (
-    <div className="container">
+    <div className="container table-conteiner">
       <table className="table table-bordered">
         <thead>
           <tr>
