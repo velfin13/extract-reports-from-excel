@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
 import { Table } from './components/Table/Table';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 
 const ExcelReader = () => {
   const [excelData, setExcelData] = useState([]);
@@ -41,8 +45,30 @@ const ExcelReader = () => {
   const handlePrint = () => {
     // Lógica para imprimir aquí
     console.log('Imprimir datos Excel:', excelData);
-    // Aquí puedes utilizar los datos de excel para generar un archivo PDF
-    // y luego imprimir ese PDF.
+    const docDefinition = {
+      content: [
+        {
+          text: "Hola Mundo",
+          fontSize: 20,
+        },
+        {
+          table: {
+            body: [
+              ["Nombre", "Apellido"],
+              ["Juan", "Pérez"],
+              ["María", "Gómez"],
+            ],
+          },
+        },
+      ],
+    };
+    const pdf = pdfMake.createPdf(docDefinition);
+
+    // Abrir el PDF en una nueva pestaña
+    pdf.open();
+
+    // Guardar el PDF en el archivo
+    pdf.save("mi-pdf.pdf");
   };
 
   return (
