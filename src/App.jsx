@@ -1,5 +1,7 @@
 import React from "react";
 import { Dropzone } from "./components/Dropzone/Dropzone";
+import { NavLink } from "react-router-dom";
+import "./App.css"
 
 export const App = () => {
   return (
@@ -26,9 +28,10 @@ export const App = () => {
               style={{ "--bs-scroll-height": "100px" }}
             >
               <li className="nav-item">
-                <a className="text-white nav-link active" aria-current="page" href="#">
-                  Reporte BGU 1 a 2
-                </a>
+                <NavLink className="text-white nav-link active-nav" to="/reporte-bgu-1-a-2">Reporte BGU 1 a 2</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="text-white nav-link" to="/reporte">reporte</NavLink>
               </li>
             </ul>
           </div>
