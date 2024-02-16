@@ -7,24 +7,31 @@ const ExcelReader = () => {
   const [excelData, setExcelData] = useState([]);
 
   const onDrop = (acceptedFiles) => {
+    if (acceptedFiles.length === 0) {
+      // No files were dropped
+      alert('Please drop a valid Excel file.');
+      return;
+    }
+  
     const file = acceptedFiles[0];
-
+  
     const reader = new FileReader();
-
+  
     reader.onload = (e) => {
       const binaryData = e.target.result;
       const workbook = XLSX.read(binaryData, { type: 'binary' });
-
+  
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
-
+  
       const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
       console.log(jsonData);
       setExcelData(jsonData);
     };
-
+  
     reader.readAsBinaryString(file);
   };
+  
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
@@ -39,7 +46,7 @@ const ExcelReader = () => {
   };
 
   return (
-    <div>
+    <div className='container mt-4'>
       <div {...getRootProps()} style={dropzoneStyle}>
         <input {...getInputProps()} />
         <p>Arrastra y suelta un archivo Excel o haz clic para seleccionar uno.</p>
@@ -50,7 +57,9 @@ const ExcelReader = () => {
       )}
 
       {excelData.length > 0 && (
-        <button className='btn btn-primary' onClick={handlePrint}>Imprimir</button>
+        <div className='d-flex align-items-center justify-content-center mb-4'>
+          <button className='btn btn-primary' onClick={handlePrint}>Imprimir</button>
+        </div>
       )}
 
     </div>
