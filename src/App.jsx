@@ -50,8 +50,9 @@ const ExcelReader = () => {
       )}
 
       {excelData.length > 0 && (
-        <button onClick={handlePrint}>Imprimir</button>
+        <button className='btn btn-primary' onClick={handlePrint}>Imprimir</button>
       )}
+
     </div>
   );
 };
