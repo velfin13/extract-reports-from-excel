@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
-import { Document, Page, pdfjs } from 'react-pdf';
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.js`;
+import { Table } from './components/Table/Table';
 
 const ExcelReader = () => {
   const [excelData, setExcelData] = useState([]);
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
 
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -42,10 +38,6 @@ const ExcelReader = () => {
     // y luego imprimir ese PDF.
   };
 
-  const onPdfLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
-
   return (
     <div>
       <div {...getRootProps()} style={dropzoneStyle}>
@@ -54,27 +46,7 @@ const ExcelReader = () => {
       </div>
 
       {excelData.length > 0 && (
-        <div>
-          <table>
-            <thead>
-              <tr>
-                {excelData[0] &&
-                  excelData[0].map((header, index) => (
-                    <th key={index}>{header}</th>
-                  ))}
-              </tr>
-            </thead>
-            <tbody>
-              {excelData.slice(1).map((row, rowIndex) => (
-                <tr key={rowIndex}>
-                  {row.map((cell, cellIndex) => (
-                    <td key={cellIndex}>{cell}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Table excelData={excelData} />
       )}
 
       {excelData.length > 0 && (
