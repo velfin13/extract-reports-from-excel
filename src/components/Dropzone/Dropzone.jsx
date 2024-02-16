@@ -4,6 +4,9 @@ import * as XLSX from "xlsx";
 import { Table } from "../Table/Table";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import {docDefinition as matriz8a9} from '../../utils/matriz8a9'
+import {docDefinition as reportebgu1a2} from '../../utils/reportebgu1a2'
+import { matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const dropzoneStyle = {
@@ -14,8 +17,10 @@ const dropzoneStyle = {
   cursor: "pointer",
 };
 
-export const Dropzone = () => {
+export const Dropzone = ({routeCurrent}) => {
   const [excelData, setExcelData] = useState([]);
+
+  console.log(routeCurrent);
 
   const onDrop = (acceptedFiles) => {
     if (acceptedFiles.length === 0) {
@@ -50,29 +55,26 @@ export const Dropzone = () => {
 
   const handlePrint = () => {
     console.log("Imprimir datos Excel:", excelData);
-    var docDefinition = {
-      content: [
-        { text: "This is a header", style: "header" },
-        "No styling here, this is a standard paragraph",
-        { text: "Another text", style: "anotherStyle" },
-        { text: "Multiple styles applied", style: ["header", "anotherStyle"] },
-      ],
 
-      styles: {
-        header: {
-          fontSize: 22,
-          bold: true,
-        },
-        anotherStyle: {
-          italics: true,
-          alignment: "right",
-        },
-      },
-    };
+    if (routeCurrent == "/") {
+      alert("selecciona un formato!");
+      return;
+    }
+    var docDefinition = "";
+    switch (routeCurrent) {
+      case matriz_8_a_9:
+        docDefinition = matriz8a9;
+        break;
+      case reporte_bgu_1_a_2:
+        docDefinition = reportebgu1a2;
+        break;
+    
+      default:
+        break;
+    }
 
     const pdf = pdfMake.createPdf(docDefinition);
     pdf.open();
-    pdf.save("reporte.pdf");
   };
 
   return (

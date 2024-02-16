@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dropzone } from "./components/Dropzone/Dropzone";
 import { NavLink } from "react-router-dom";
-import "./App.css"
+import { useLocation } from "react-router-dom";
+import "./App.css";
+import { reporte_bgu_1_a_2, matriz_8_a_9 } from "./utils/routes";
 
 export const App = () => {
+  let location = useLocation();
+  const [routeCurrent, setRouteCurrent] = useState("");
+
+  React.useEffect(() => {
+    setRouteCurrent(location.pathname);
+  }, [location]);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand text-white" href="#">
+          <NavLink className="navbar-brand text-white" to="/">
             JAVA - REPORTS
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -28,17 +37,37 @@ export const App = () => {
               style={{ "--bs-scroll-height": "100px" }}
             >
               <li className="nav-item">
-                <NavLink className="text-white nav-link active-nav" to="/reporte-bgu-1-a-2">Reporte BGU 1 a 2</NavLink>
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    if (isActive) {
+                      return "text-white nav-link active-nav";
+                    }
+                    return "text-white nav-link";
+                  }}
+                  to={reporte_bgu_1_a_2}
+                >
+                  Reporte BGU 1 a 2
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="text-white nav-link" to="/reporte">reporte</NavLink>
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    if (isActive) {
+                      return "text-white nav-link active-nav";
+                    }
+                    return "text-white nav-link";
+                  }}
+                  to={matriz_8_a_9}
+                >
+                  Reporte BGU 1 a 2
+                </NavLink>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <div className="container">
-        <Dropzone />
+        <Dropzone routeCurrent={routeCurrent} />
       </div>
     </>
   );
