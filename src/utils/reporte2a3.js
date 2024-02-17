@@ -146,7 +146,7 @@ export const getPdf = (data = [], cabecera = {}) => {
             widths: ["8%", "25.33%", "8%", "25.33%", "8%", "25.33%"],
             body: [
               [
-                { text: "Grado", bold: true },
+                { text: "Grado/Curso", bold: true },
                 cabecera.curso,
                 { text: "Paralelo", bold: true },
                 cabecera.paralelo,

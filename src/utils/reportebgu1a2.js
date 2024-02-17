@@ -271,7 +271,7 @@ export const getPdf = (data = [], cabecera = {}) => {
             widths: ["8%", "25.33%", "8%", "25.33%", "8%", "25.33%"],
             body: [
               [
-                { text: "Grado", bold: true },
+                { text: "Grado/Curso", bold: true },
                 cabecera.curso,
                 { text: "Paralelo", bold: true },
                 cabecera.paralelo,
@@ -306,7 +306,7 @@ export const getPdf = (data = [], cabecera = {}) => {
                 { text: "Trimestre 2 (3)", bold: true, alignment: "center" },
                 { text: "Trimestre 3 (3)", bold: true, alignment: "center" },
                 { text: "Proyecto I.(1)", bold: true, alignment: "center" },
-                { text: "Promedio total (T1 + T2 + t3 + PI)", bold: true, alignment: "center", },
+                { text: "Promedio total (T1 + T2 + T3 + PI)", bold: true, alignment: "center", },
                 { text: "Estado", bold: true, alignment: "center" },
               ],
               matematica,
