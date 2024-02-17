@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import * as XLSX from "xlsx";
 import JSZip from "jszip";
@@ -9,6 +9,7 @@ import { getPdf as reporte8a9 } from "../../utils/reporte8a9";
 import { getPdf as reportebgu1a2 } from "../../utils/reportebgu1a2";
 import { getPdf as reporte10 } from "../../utils/reporte10";
 import { matriz_10, matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
+import { validJsonNoEmpty } from "../../utils/validators";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const dropzoneStyle = {
@@ -73,6 +74,10 @@ export const Dropzone = ({ routeCurrent }) => {
       periodo
     }
 
+    if (!validJsonNoEmpty(cabecera)) {
+      return;
+    }
+
     switch (routeCurrent) {
       case matriz_8_a_9:
         docDefinitionArray = reporte8a9(excelData,cabecera);
@@ -112,44 +117,44 @@ export const Dropzone = ({ routeCurrent }) => {
       <div className="row">
         <div className="col-md-3">
           <h3 className="text-center">Cabecera del pdf</h3>
-          <div class="mb-3 row">
-            <label for="inputTutor" class="col-12 col-form-label">
+          <div className="mb-3 row">
+            <label htmlFor="inputTutor" className="col-12 col-htmlForm-label">
               Tutor
             </label>
-            <div class="col-12">
-              <input value={tutor} onChange={e=>setTutor(e.target.value)} type="text" class="form-control" name="tutor" id="inputTutor" />
+            <div className="col-12">
+              <input value={tutor} onChange={e=>setTutor(e.target.value)} type="text" className="form-control" name="tutor" id="inputTutor" />
             </div>
           </div>
-          <div class="mb-3 row">
-            <label for="inputCurso" class="col-12 col-form-label">
+          <div className="mb-3 row">
+            <label htmlFor="inputCurso" className="col-12 col-form-label">
               Curso
             </label>
-            <div class="col-12">
-              <input value={curso} onChange={e=>setCurso(e.target.value)} type="text" class="form-control" name="curso" id="inputCurso" />
+            <div className="col-12">
+              <input value={curso} onChange={e=>setCurso(e.target.value)} type="text" className="form-control" name="curso" id="inputCurso" />
             </div>
           </div>
-          <div class="mb-3 row">
-            <label for="inputParalelo" class="col-12 col-form-label">
+          <div className="mb-3 row">
+            <label htmlFor="inputParalelo" className="col-12 col-form-label">
               Paralelo
             </label>
-            <div class="col-12">
-              <input value={paralelo} onChange={e=>setParalelo(e.target.value)} type="text" class="form-control" name="paralelo" id="inputParalelo" />
+            <div className="col-12">
+              <input value={paralelo} onChange={e=>setParalelo(e.target.value)} type="text" className="form-control" name="paralelo" id="inputParalelo" />
             </div>
           </div>
-          <div class="mb-3 row">
-            <label for="inputJornada" class="col-12 col-form-label">
+          <div className="mb-3 row">
+            <label htmlFor="inputJornada" className="col-12 col-form-label">
               Jornada
             </label>
-            <div class="col-12">
-              <input value={jornada} onChange={e=>setJornada(e.target.value)} type="text" class="form-control" name="jornada" id="inputJornada" />
+            <div className="col-12">
+              <input value={jornada} onChange={e=>setJornada(e.target.value)} type="text" className="form-control" name="jornada" id="inputJornada" />
             </div>
           </div>
-          <div class="mb-3 row">
-            <label for="inputPeriodo" class="col-12 col-form-label">
+          <div className="mb-3 row">
+            <label htmlFor="inputPeriodo" className="col-12 col-form-label">
               Periodo Lectivo
             </label>
-            <div class="col-12">
-              <input value={periodo} onChange={e=>setPeriodo(e.target.value)} type="text" class="form-control" name="periodo" id="inputPeriodo" />
+            <div className="col-12">
+              <input value={periodo} onChange={e=>setPeriodo(e.target.value)} type="text" className="form-control" name="periodo" id="inputPeriodo" />
             </div>
           </div>
           <hr />
