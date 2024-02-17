@@ -93,7 +93,7 @@ export const getPdf = (data = [], cabecera = {}) => {
   dataFinal.forEach(i => {
     console.log(i);
 
-    var tempData = [
+    const lenguaje = [
       { text: i.lenguaje.materia, alignment: "center" },
       { text: i.lenguaje.trimestre1, alignment: "center" },
       { text: i.lenguaje.trimestre2, alignment: "center" },
@@ -103,7 +103,65 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.lenguaje.estado, alignment: "center" },
     ]
 
+    const matematica = [
+      { text: i.matematica.materia, alignment: "center" },
+      { text: i.matematica.trimestre1, alignment: "center" },
+      { text: i.matematica.trimestre2, alignment: "center" },
+      { text: i.matematica.trimestre3, alignment: "center" },
+      { text: i.matematica.proyecto, alignment: "center" },
+      { text: i.matematica.promedioTotal, alignment: "center", },
+      { text: i.matematica.estado, alignment: "center" },
+    ]
 
+    const sociales = [
+      { text: i.sociales.materia, alignment: "center" },
+      { text: i.sociales.trimestre1, alignment: "center" },
+      { text: i.sociales.trimestre2, alignment: "center" },
+      { text: i.sociales.trimestre3, alignment: "center" },
+      { text: i.sociales.proyecto, alignment: "center" },
+      { text: i.sociales.promedioTotal, alignment: "center", },
+      { text: i.sociales.estado, alignment: "center" },
+    ]
+
+    const ciencias = [
+      { text: i.ciencia.materia, alignment: "center" },
+      { text: i.ciencia.trimestre1, alignment: "center" },
+      { text: i.ciencia.trimestre2, alignment: "center" },
+      { text: i.ciencia.trimestre3, alignment: "center" },
+      { text: i.ciencia.proyecto, alignment: "center" },
+      { text: i.ciencia.promedioTotal, alignment: "center", },
+      { text: i.ciencia.estado, alignment: "center" },
+    ]
+
+    const eca = [
+      { text: i.eca.materia, alignment: "center" },
+      { text: i.eca.trimestre1, alignment: "center" },
+      { text: i.eca.trimestre2, alignment: "center" },
+      { text: i.eca.trimestre3, alignment: "center" },
+      { text: i.eca.proyecto, alignment: "center" },
+      { text: i.eca.promedioTotal, alignment: "center", },
+      { text: i.eca.estado, alignment: "center" },
+    ]
+
+    const efisica = [
+      { text: i.efisica.materia, alignment: "center" },
+      { text: i.efisica.trimestre1, alignment: "center" },
+      { text: i.efisica.trimestre2, alignment: "center" },
+      { text: i.efisica.trimestre3, alignment: "center" },
+      { text: i.efisica.proyecto, alignment: "center" },
+      { text: i.efisica.promedioTotal, alignment: "center", },
+      { text: i.efisica.estado, alignment: "center" },
+    ]
+
+    const ingles = [
+      { text: i.ingles.materia, alignment: "center" },
+      { text: i.ingles.trimestre1, alignment: "center" },
+      { text: i.ingles.trimestre2, alignment: "center" },
+      { text: i.ingles.trimestre3, alignment: "center" },
+      { text: i.ingles.proyecto, alignment: "center" },
+      { text: i.ingles.promedioTotal, alignment: "center", },
+      { text: i.ingles.estado, alignment: "center" },
+    ]
 
     var docDefinition = {
       content: [
@@ -157,7 +215,13 @@ export const getPdf = (data = [], cabecera = {}) => {
                 { text: "Promedio total (T1 + T2 + t3 + PI)", bold: true, alignment: "center", },
                 { text: "Estado", bold: true, alignment: "center" },
               ],
-              tempData
+              lenguaje,
+              matematica,
+              sociales,
+              ciencias,
+              eca,
+              efisica,
+              ingles
             ],
           },
         },

@@ -44,9 +44,9 @@ export const App = () => {
                     }
                     return "text-white nav-link";
                   }}
-                  to={reporte_bgu_1_a_2}
+                  to={matriz_8_a_9}
                 >
-                  Reporte BGU 1 a 2
+                  Reporte 8 a 9
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -57,7 +57,7 @@ export const App = () => {
                     }
                     return "text-white nav-link";
                   }}
-                  to={matriz_8_a_9}
+                  to={reporte_bgu_1_a_2}
                 >
                   Reporte BGU 1 a 2
                 </NavLink>
