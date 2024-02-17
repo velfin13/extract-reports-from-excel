@@ -3,7 +3,7 @@ import { Dropzone } from "./components/Dropzone/Dropzone";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./App.css";
-import { reporte_bgu_1_a_2, matriz_8_a_9, matriz_10 } from "./utils/routes";
+import { reporte_bgu_1_a_2, matriz_8_a_9, matriz_10, matriz_2_a_3 } from "./utils/routes";
 
 export const App = () => {
   let location = useLocation();
@@ -36,6 +36,19 @@ export const App = () => {
               className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
               style={{ "--bs-scroll-height": "100px" }}
             >
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    if (isActive) {
+                      return "text-white nav-link active-nav";
+                    }
+                    return "text-white nav-link";
+                  }}
+                  to={matriz_2_a_3}
+                >
+                  Reporte 2 a 3
+                </NavLink>
+              </li>
               <li className="nav-item">
                 <NavLink
                   className={({ isActive, isPending }) => {
