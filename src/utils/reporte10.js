@@ -186,7 +186,7 @@ export const getPdf = (data = [], cabecera = {}) => {
         { text: "", margin: [0, 15] },
         {
           table: {
-            widths: ["8%", "25.33%", "8%", "25.33%", "8%", "25.33%"],
+            widths: ["10%", "23.33%", "8%", "25.33%", "8%", "25.33%"],
             body: [
               [
                 { text: "Grado/Curso", bold: true },
@@ -215,7 +215,7 @@ export const getPdf = (data = [], cabecera = {}) => {
         { text: "", margin: [0, 15] },
         {
           table: {
-            widths: ["*", "*", "*", "*", "*","*", "*", "*"],
+            widths: ["25%", "*", "*", "*", "*","*", "*", "*"],
             body: [
               [
                 { text: "Rendimiento Académico", bold: true, alignment: "center", },

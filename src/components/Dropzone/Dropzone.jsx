@@ -6,10 +6,11 @@ import { Table } from "../Table/Table";
 import {vfs} from '../../utils/vsf'
 import pdfMake from "pdfmake/build/pdfmake";
 import { getPdf as reporte2a3 } from "../../utils/reporte2a3";
+import { getPdf as reporte4 } from "../../utils/reporte4";
 import { getPdf as reporte8a9 } from "../../utils/reporte8a9";
 import { getPdf as reportebgu1a2 } from "../../utils/reportebgu1a2";
 import { getPdf as reporte10 } from "../../utils/reporte10";
-import { matriz_10, matriz_2_a_3, matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
+import { matriz_10, matriz_2_a_3, matriz_4, matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
 import { validJsonNoEmpty } from "../../utils/validators";
 pdfMake.vfs = vfs;
 
@@ -84,6 +85,10 @@ export const Dropzone = ({ routeCurrent }) => {
         docDefinitionArray = reporte2a3(excelData,cabecera);
         zipFilename = "reportes-2-a-3.zip";
         break;
+      case matriz_4:
+        docDefinitionArray = reporte4(excelData,cabecera);
+        zipFilename = "reportes-4.zip";
+        break;
       case matriz_8_a_9:
         docDefinitionArray = reporte8a9(excelData,cabecera);
         zipFilename = "reportes-8-a-9.zip";
@@ -124,7 +129,7 @@ export const Dropzone = ({ routeCurrent }) => {
           <h3 className="text-center">Cabecera del pdf</h3>
           <div className="mb-3 row">
             <label htmlFor="inputTutor" className="col-12 col-htmlForm-label">
-              Tutor
+              Tutor/a
             </label>
             <div className="col-12">
               <input value={tutor} onChange={e=>setTutor(e.target.value)} type="text" className="form-control" name="tutor" id="inputTutor" />

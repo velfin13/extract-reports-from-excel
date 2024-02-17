@@ -13,6 +13,7 @@ export const getPdf = (data = [], cabecera = {}) => {
   materias.push(data[0][16]);
   materias.push(data[0][19]);
 
+
   for (let i = 0; i < data.length; i++) {
     var temp = {}
     const element = data[i];
@@ -60,8 +61,9 @@ export const getPdf = (data = [], cabecera = {}) => {
     temp.ingles.trimestre2 = element[20];
     temp.ingles.trimestre3 = element[21];
 
-    temp.final = element[22];
-    temp.estado = element[23];
+    temp.subnivel = element[22];
+    temp.final = element[23];
+    temp.estado = element[24];
 
     dataFinal.push(temp);
   }
@@ -74,6 +76,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.lenguaje.trimestre1, alignment: "center" },
       { text: i.lenguaje.trimestre2, alignment: "center" },
       { text: i.lenguaje.trimestre3, alignment: "center" },
+      { text: i.subnivel, alignment: "center", },
       { text: i.final, alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
@@ -83,6 +86,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.matematica.trimestre1, alignment: "center" },
       { text: i.matematica.trimestre2, alignment: "center" },
       { text: i.matematica.trimestre3, alignment: "center" },
+      { text: i.subnivel, alignment: "center", },
       { text: i.final, alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
@@ -92,6 +96,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.sociales.trimestre1, alignment: "center" },
       { text: i.sociales.trimestre2, alignment: "center" },
       { text: i.sociales.trimestre3, alignment: "center" },
+      { text: i.subnivel, alignment: "center", },
       { text: i.final, alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
@@ -101,6 +106,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.ciencia.trimestre1, alignment: "center" },
       { text: i.ciencia.trimestre2, alignment: "center" },
       { text: i.ciencia.trimestre3, alignment: "center" },
+      { text: i.subnivel, alignment: "center", },
       { text: i.final, alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
@@ -110,6 +116,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.artistica.trimestre1, alignment: "center" },
       { text: i.artistica.trimestre2, alignment: "center" },
       { text: i.artistica.trimestre3, alignment: "center" },
+      { text: i.subnivel, alignment: "center", },
       { text: i.final, alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
@@ -119,6 +126,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.efisica.trimestre1, alignment: "center" },
       { text: i.efisica.trimestre2, alignment: "center" },
       { text: i.efisica.trimestre3, alignment: "center" },
+      { text: i.subnivel, alignment: "center", },
       { text: i.final, alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
@@ -128,6 +136,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.ingles.trimestre1, alignment: "center" },
       { text: i.ingles.trimestre2, alignment: "center" },
       { text: i.ingles.trimestre3, alignment: "center" },
+      { text: i.subnivel, alignment: "center", },
       { text: i.final, alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
@@ -172,7 +181,7 @@ export const getPdf = (data = [], cabecera = {}) => {
         { text: "", margin: [0, 15] },
         {
           table: {
-            widths: ["25%", "*", "*", "*", "*", "*"],
+            widths: ["*", "*", "*", "*","*","*", "*"],
 
             body: [
               [
@@ -180,6 +189,7 @@ export const getPdf = (data = [], cabecera = {}) => {
                 { text: "Trimestre 1", bold: true, alignment: "center" },
                 { text: "Trimestre 2", bold: true, alignment: "center" },
                 { text: "Trimestre 3", bold: true, alignment: "center" },
+                { text: "Prueba de Subnivel", bold: true, alignment: "center" },
                 { text: "Promedio Final", bold: true, alignment: "center", },
                 { text: "Estado", bold: true, alignment: "center" },
               ],
