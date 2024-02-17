@@ -1,25 +1,179 @@
 import { logo } from "./logo";
 
-export const docDefinition = {
-    content: [
+export const getPdf = (data = [], cabecera = {}) => {
+  var arraydocDefinition = []
+  var materias = []
+  var dataFinal = [];
+
+  materias.push(data[0][1]);
+  materias.push(data[0][7]);
+  materias.push(data[0][13]);
+  materias.push(data[0][19]);
+  materias.push(data[0][25]);
+  materias.push(data[0][31]);
+  materias.push(data[0][37]);
+
+  console.log(data.length - 2);
+
+  for (let i = 0; i < data.length; i++) {
+    var temp = {}
+    const element = data[i];
+    temp.lenguaje = {};
+    temp.matematica = {};
+    temp.sociales = {};
+    temp.ciencia = {};
+    temp.eca = {};
+    temp.efisica = {};
+    temp.ingles = {};
+
+    temp.estudiante = element[0];
+    temp.lenguaje.materia = materias[0];
+    temp.lenguaje.trimestre1 = element[1];
+    temp.lenguaje.trimestre2 = element[2];
+    temp.lenguaje.trimestre3 = element[3];
+    temp.lenguaje.proyecto = element[4];
+    temp.lenguaje.promedioTotal = element[5];
+    temp.lenguaje.estado = element[6];
+
+    temp.matematica.materia = materias[1];
+    temp.matematica.trimestre1 = element[7];
+    temp.matematica.trimestre2 = element[8];
+    temp.matematica.trimestre3 = element[9];
+    temp.matematica.proyecto = element[10];
+    temp.matematica.promedioTotal = element[11];
+    temp.matematica.estado = element[12];
+
+    temp.sociales.materia = materias[2];
+    temp.sociales.trimestre1 = element[13];
+    temp.sociales.trimestre2 = element[14];
+    temp.sociales.trimestre3 = element[15];
+    temp.sociales.proyecto = element[16];
+    temp.sociales.promedioTotal = element[17];
+    temp.sociales.estado = element[18];
+
+    temp.ciencia.materia = materias[3];
+    temp.ciencia.trimestre1 = element[19];
+    temp.ciencia.trimestre2 = element[20];
+    temp.ciencia.trimestre3 = element[21];
+    temp.ciencia.proyecto = element[22];
+    temp.ciencia.promedioTotal = element[23];
+    temp.ciencia.estado = element[24];
+
+    temp.eca.materia = materias[4];
+    temp.eca.trimestre1 = element[25];
+    temp.eca.trimestre2 = element[26];
+    temp.eca.trimestre3 = element[27];
+    temp.eca.proyecto = element[28];
+    temp.eca.promedioTotal = element[29];
+    temp.eca.estado = element[30];
+
+    temp.efisica.materia = materias[5];
+    temp.efisica.trimestre1 = element[31];
+    temp.efisica.trimestre2 = element[32];
+    temp.efisica.trimestre3 = element[33];
+    temp.efisica.proyecto = element[34];
+    temp.efisica.promedioTotal = element[35];
+    temp.efisica.estado = element[36];
+
+    temp.ingles.materia = materias[6];
+    temp.ingles.trimestre1 = element[37];
+    temp.ingles.trimestre2 = element[38];
+    temp.ingles.trimestre3 = element[39];
+    temp.ingles.proyecto = element[40];
+    temp.ingles.promedioTotal = element[41];
+    temp.ingles.estado = element[42];
+
+    temp.final = element[43];
+    temp.academico = element[44];
+
+    dataFinal.push(temp);
+  }
+  dataFinal.splice(0, 2);
+
+  dataFinal.forEach(i => {
+    console.log(i);
+
+    var tempData = [
+      { text: i.lenguaje.materia, alignment: "center" },
+      { text: i.lenguaje.trimestre1, alignment: "center" },
+      { text: i.lenguaje.trimestre2, alignment: "center" },
+      { text: i.lenguaje.trimestre3, alignment: "center" },
+      { text: i.lenguaje.proyecto, alignment: "center" },
+      { text: i.lenguaje.promedioTotal, alignment: "center", },
+      { text: i.lenguaje.estado, alignment: "center" },
+    ]
+
+
+
+    var docDefinition = {
+      content: [
+        { image: logo, width: 260, alignment: "right" },
         {
-            image: logo,
-            width: 200,
-            alignment: 'left'
+          text: "Reporte de Calificaciones",
+          style: "header",
+          alignment: "center",
         },
-      { text: "Reporte de Calificaciones", style: "header", alignment: 'center' },
-      { text: "Another text", style: "anotherStyle" },
-      { text: "Multiple styles applied", style: ["header", "anotherStyle"] },
-    ],
-    pageOrientation: 'landscape',
-    styles: {
-      header: {
-        fontSize: 22,
-        bold: true,
+        { text: "", margin: [0, 15] },
+        {
+          table: {
+            widths: ["8%", "25.33%", "8%", "25.33%", "8%", "25.33%"],
+            body: [
+              [
+                { text: "Grado", bold: true },
+                "Segundo",
+                { text: "Paralelo", bold: true },
+                "A",
+                { text: "Jornada", bold: true },
+                "Matutino",
+              ],
+            ],
+          },
+        },
+        {
+          table: {
+            widths: ["15%", "35%", "15%", "35%"],
+            body: [
+              [
+                { text: "Estudiante", bold: true },
+                i.estudiante,
+                { text: "Periodo", bold: true },
+                "2021 - 2022",
+              ],
+            ],
+          },
+        },
+        { text: "", margin: [0, 15] },
+        {
+          table: {
+            widths: ["*", "*", "*", "*", "*", "*", "*"],
+
+            body: [
+              [
+                { text: "Rendimiento Académico", bold: true, alignment: "center", },
+                { text: "Trimestre 1 (3)", bold: true, alignment: "center" },
+                { text: "Trimestre 2 (3)", bold: true, alignment: "center" },
+                { text: "Trimestre 3 (3)", bold: true, alignment: "center" },
+                { text: "Proyecto I.(1)", bold: true, alignment: "center" },
+                { text: "Promedio total (T1 + T2 + t3 + PI)", bold: true, alignment: "center", },
+                { text: "Estado", bold: true, alignment: "center" },
+              ],
+              tempData
+            ],
+          },
+        },
+      ],
+      pageOrientation: "landscape",
+      styles: {
+        header: {
+          fontSize: 22,
+          bold: true,
+        },
       },
-      anotherStyle: {
-        italics: true,
-        alignment: "right",
-      },
-    },
-  };
+      filename:i.estudiante + ".pdf"
+    };
+
+    arraydocDefinition.push(docDefinition);
+  });
+
+  return arraydocDefinition;
+};

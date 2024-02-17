@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import * as XLSX from "xlsx";
+import JSZip from 'jszip';
 import { Table } from "../Table/Table";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import {docDefinition as matriz8a9} from '../../utils/matriz8a9'
-import {docDefinition as reportebgu1a2} from '../../utils/reportebgu1a2'
+import { getPdf as matriz8a9 } from "../../utils/matriz8a9";
+import { getPdf as reportebgu1a2 } from "../../utils/reportebgu1a2";
 import { matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -17,10 +18,8 @@ const dropzoneStyle = {
   cursor: "pointer",
 };
 
-export const Dropzone = ({routeCurrent}) => {
+export const Dropzone = ({ routeCurrent }) => {
   const [excelData, setExcelData] = useState([]);
-
-  console.log(routeCurrent);
 
   const onDrop = (acceptedFiles) => {
     if (acceptedFiles.length === 0) {
@@ -54,27 +53,41 @@ export const Dropzone = ({routeCurrent}) => {
   });
 
   const handlePrint = () => {
-    console.log("Imprimir datos Excel:", excelData);
-
     if (routeCurrent == "/") {
       alert("selecciona un formato!");
       return;
     }
-    var docDefinition = "";
+    var docDefinitionArray = [];
+    var zipFilename = "documentos.zip";
+
     switch (routeCurrent) {
       case matriz_8_a_9:
-        docDefinition = matriz8a9;
+        docDefinitionArray = matriz8a9(excelData);
+        zipFilename = "reportes-8-a-9.zip"
         break;
       case reporte_bgu_1_a_2:
-        docDefinition = reportebgu1a2;
+        docDefinitionArray = reportebgu1a2(excelData);
+        zipFilename = "reportes-bgu-1-a-2.zip"
         break;
-    
+
       default:
         break;
     }
+    const zip = new JSZip();
+    docDefinitionArray.forEach((docDefinition, index) => {
+      const pdf = pdfMake.createPdf(docDefinition);
 
-    const pdf = pdfMake.createPdf(docDefinition);
-    pdf.open();
+      pdf.getBlob((blob) => {
+        const filename = docDefinitionArray[index].filename;
+        zip.file(filename, blob, { binary: true });
+
+        if (index === docDefinitionArray.length - 1) {
+          zip.generateAsync({ type: "blob" }).then((content) => {
+            saveAs(content, zipFilename);
+          });
+        }
+      });
+    });
   };
 
   return (
@@ -93,13 +106,13 @@ export const Dropzone = ({routeCurrent}) => {
         {excelData.length > 0 && (
           <div className="col-md-9">
             <Table excelData={excelData} />
-            <div className="d-flex align-items-center justify-content-center mb-4">
+            <div className="d-flex align-items-center justify-content-center mt-4">
               <button className="btn btn-primary" onClick={handlePrint}>
                 Imprimir
               </button>
             </div>
           </div>
-      )}
+        )}
       </div>
     </div>
   );
