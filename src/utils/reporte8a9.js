@@ -14,8 +14,6 @@ export const getPdf = (data = [], cabecera = {}) => {
   materias.push(data[0][31]);
   materias.push(data[0][37]);
 
-  console.log(data.length - 2);
-
   for (let i = 0; i < data.length; i++) {
     var temp = {}
     const element = data[i];

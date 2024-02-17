@@ -3,7 +3,7 @@ import { Dropzone } from "./components/Dropzone/Dropzone";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./App.css";
-import { reporte_bgu_1_a_2, matriz_8_a_9 } from "./utils/routes";
+import { reporte_bgu_1_a_2, matriz_8_a_9, matriz_10 } from "./utils/routes";
 
 export const App = () => {
   let location = useLocation();
@@ -21,7 +21,7 @@ export const App = () => {
             JAVA - REPORTS
           </NavLink>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler bg-white"
             type="button"
             data-toggle="collapse"
             data-target="#navbarScroll"
@@ -47,6 +47,19 @@ export const App = () => {
                   to={matriz_8_a_9}
                 >
                   Reporte 8 a 9
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    if (isActive) {
+                      return "text-white nav-link active-nav";
+                    }
+                    return "text-white nav-link";
+                  }}
+                  to={matriz_10}
+                >
+                  Reporte 10
                 </NavLink>
               </li>
               <li className="nav-item">

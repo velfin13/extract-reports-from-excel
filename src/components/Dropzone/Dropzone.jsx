@@ -5,9 +5,10 @@ import JSZip from "jszip";
 import { Table } from "../Table/Table";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { getPdf as matriz8a9 } from "../../utils/matriz8a9";
+import { getPdf as reporte8a9 } from "../../utils/reporte8a9";
 import { getPdf as reportebgu1a2 } from "../../utils/reportebgu1a2";
-import { matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
+import { getPdf as reporte10 } from "../../utils/reporte10";
+import { matriz_10, matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const dropzoneStyle = {
@@ -74,8 +75,12 @@ export const Dropzone = ({ routeCurrent }) => {
 
     switch (routeCurrent) {
       case matriz_8_a_9:
-        docDefinitionArray = matriz8a9(excelData,cabecera);
+        docDefinitionArray = reporte8a9(excelData,cabecera);
         zipFilename = "reportes-8-a-9.zip";
+        break;
+      case matriz_10:
+        docDefinitionArray = reporte10(excelData,cabecera);
+        zipFilename = "reportes-10.zip";
         break;
       case reporte_bgu_1_a_2:
         docDefinitionArray = reportebgu1a2(excelData,cabecera);
