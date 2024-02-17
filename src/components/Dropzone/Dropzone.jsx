@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import * as XLSX from "xlsx";
-import JSZip from 'jszip';
+import JSZip from "jszip";
 import { Table } from "../Table/Table";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -20,6 +20,11 @@ const dropzoneStyle = {
 
 export const Dropzone = ({ routeCurrent }) => {
   const [excelData, setExcelData] = useState([]);
+  const [tutor, setTutor] = useState("");
+  const [paralelo, setParalelo] = useState("");
+  const [jornada, setJornada] = useState("");
+  const [curso, setCurso] = useState("");
+  const [periodo, setPeriodo] = useState("");
 
   const onDrop = (acceptedFiles) => {
     if (acceptedFiles.length === 0) {
@@ -40,7 +45,6 @@ export const Dropzone = ({ routeCurrent }) => {
       const sheet = workbook.Sheets[sheetName];
 
       const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-      console.log(jsonData);
       setExcelData(jsonData);
     };
 
@@ -60,14 +64,22 @@ export const Dropzone = ({ routeCurrent }) => {
     var docDefinitionArray = [];
     var zipFilename = "documentos.zip";
 
+    const cabecera = {
+      tutor,
+      paralelo,
+      curso,
+      jornada,
+      periodo
+    }
+
     switch (routeCurrent) {
       case matriz_8_a_9:
-        docDefinitionArray = matriz8a9(excelData);
-        zipFilename = "reportes-8-a-9.zip"
+        docDefinitionArray = matriz8a9(excelData,cabecera);
+        zipFilename = "reportes-8-a-9.zip";
         break;
       case reporte_bgu_1_a_2:
-        docDefinitionArray = reportebgu1a2(excelData);
-        zipFilename = "reportes-bgu-1-a-2.zip"
+        docDefinitionArray = reportebgu1a2(excelData,cabecera);
+        zipFilename = "reportes-bgu-1-a-2.zip";
         break;
 
       default:
@@ -94,6 +106,48 @@ export const Dropzone = ({ routeCurrent }) => {
     <div className="container mt-4">
       <div className="row">
         <div className="col-md-3">
+          <h3 className="text-center">Cabecera del pdf</h3>
+          <div class="mb-3 row">
+            <label for="inputTutor" class="col-12 col-form-label">
+              Tutor
+            </label>
+            <div class="col-12">
+              <input value={tutor} onChange={e=>setTutor(e.target.value)} type="text" class="form-control" name="tutor" id="inputTutor" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="inputCurso" class="col-12 col-form-label">
+              Curso
+            </label>
+            <div class="col-12">
+              <input value={curso} onChange={e=>setCurso(e.target.value)} type="text" class="form-control" name="curso" id="inputCurso" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="inputParalelo" class="col-12 col-form-label">
+              Paralelo
+            </label>
+            <div class="col-12">
+              <input value={paralelo} onChange={e=>setParalelo(e.target.value)} type="text" class="form-control" name="paralelo" id="inputParalelo" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="inputJornada" class="col-12 col-form-label">
+              Jornada
+            </label>
+            <div class="col-12">
+              <input value={jornada} onChange={e=>setJornada(e.target.value)} type="text" class="form-control" name="jornada" id="inputJornada" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="inputPeriodo" class="col-12 col-form-label">
+              Periodo Lectivo
+            </label>
+            <div class="col-12">
+              <input value={periodo} onChange={e=>setPeriodo(e.target.value)} type="text" class="form-control" name="periodo" id="inputPeriodo" />
+            </div>
+          </div>
+          <hr />
           <div {...getRootProps()} style={dropzoneStyle}>
             <input {...getInputProps()} />
             <p>

@@ -1,6 +1,7 @@
 import { logo } from "./logo";
 
 export const getPdf = (data = [], cabecera = {}) => {
+  console.log(cabecera);
   var arraydocDefinition = []
   var materias = []
   var dataFinal = [];
@@ -178,11 +179,11 @@ export const getPdf = (data = [], cabecera = {}) => {
             body: [
               [
                 { text: "Grado", bold: true },
-                "Segundo",
+                cabecera.curso,
                 { text: "Paralelo", bold: true },
-                "A",
+                cabecera.paralelo,
                 { text: "Jornada", bold: true },
-                "Matutino",
+                cabecera.jornada,
               ],
             ],
           },
@@ -195,7 +196,7 @@ export const getPdf = (data = [], cabecera = {}) => {
                 { text: "Estudiante", bold: true },
                 i.estudiante,
                 { text: "Periodo", bold: true },
-                "2021 - 2022",
+                cabecera.periodo,
               ],
             ],
           },

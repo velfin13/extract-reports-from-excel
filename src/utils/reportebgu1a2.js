@@ -1,6 +1,6 @@
 import { logo } from "./logo";
 
-export const getPdf=(data = [])=>{
+export const getPdf=(data = [],cabecera = {})=>{
 
     var docDefinition = {
       content: [
