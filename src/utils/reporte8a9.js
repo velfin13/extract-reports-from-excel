@@ -1,7 +1,6 @@
 import { logo } from "./logo";
 
 export const getPdf = (data = [], cabecera = {}) => {
-  console.log(cabecera);
   var arraydocDefinition = []
   var materias = []
   var dataFinal = [];
@@ -90,7 +89,6 @@ export const getPdf = (data = [], cabecera = {}) => {
   dataFinal.splice(0, 2);
 
   dataFinal.forEach(i => {
-    console.log(i);
 
     const lenguaje = [
       { text: i.lenguaje.materia, alignment: "center" },
