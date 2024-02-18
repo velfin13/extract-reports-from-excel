@@ -1,4 +1,5 @@
 import { logo } from "./logo";
+import { v4 as uuidv4 } from 'uuid';
 
 export const getPdf = (data = [], cabecera = {}) => {
   var arraydocDefinition = []
@@ -365,7 +366,7 @@ export const getPdf = (data = [], cabecera = {}) => {
           bold: true,
         },
       },
-      filename:i.estudiante + ".pdf"
+      filename:i.estudiante + "-" + uuidv4().substring(0, 5) + ".pdf"
     };
 
     arraydocDefinition.push(docDefinition);
