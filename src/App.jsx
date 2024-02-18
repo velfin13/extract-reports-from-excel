@@ -13,6 +13,7 @@ import {
   matriz_7,
 } from "./utils/routes";
 import { Socials } from "./components/Socials/Socials";
+import { Footer } from "./components/Footer/Footer";
 
 export const App = () => {
   let location = useLocation();
@@ -144,11 +145,7 @@ export const App = () => {
       <div className="container">
         <Dropzone routeCurrent={routeCurrent} />
       </div>
-      <footer className="footer text-white">
-        <div className="container text-center">
-          <span>© 2024 Velfin Velasquez</span>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 };
