@@ -142,7 +142,7 @@ export const App = () => {
       <div className="container">
         <Dropzone routeCurrent={routeCurrent} />
       </div>
-      <footer className="footer">
+      <footer className="footer text-white">
         <div className="container text-center">
           <span>© 2024 Velfin Velasquez</span>
         </div>
