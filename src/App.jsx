@@ -3,7 +3,15 @@ import { Dropzone } from "./components/Dropzone/Dropzone";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./App.css";
-import { reporte_bgu_1_a_2, matriz_8_a_9, matriz_10, matriz_2_a_3, matriz_4, matriz_5_a_6, matriz_7 } from "./utils/routes";
+import {
+  reporte_bgu_1_a_2,
+  matriz_8_a_9,
+  matriz_10,
+  matriz_2_a_3,
+  matriz_4,
+  matriz_5_a_6,
+  matriz_7,
+} from "./utils/routes";
 
 export const App = () => {
   let location = useLocation();
@@ -134,6 +142,11 @@ export const App = () => {
       <div className="container">
         <Dropzone routeCurrent={routeCurrent} />
       </div>
+      <footer className="footer">
+        <div className="container text-center">
+          <span>© 2024 Velfin Velasquez</span>
+        </div>
+      </footer>
     </>
   );
 };

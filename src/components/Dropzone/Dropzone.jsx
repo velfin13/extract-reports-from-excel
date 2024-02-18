@@ -137,7 +137,7 @@ export const Dropzone = ({ routeCurrent }) => {
       <div className="row">
         <div className="col-md-3">
           <h3 className="text-center">Cabecera del pdf</h3>
-          <div className="mb-3 row">
+          <div className="mb-2 row">
             <label htmlFor="inputTutor" className="col-12 col-htmlForm-label">
               Tutor/a
             </label>
@@ -145,7 +145,7 @@ export const Dropzone = ({ routeCurrent }) => {
               <input value={tutor} onChange={e=>setTutor(e.target.value)} type="text" className="form-control" name="tutor" id="inputTutor" />
             </div>
           </div>
-          <div className="mb-3 row">
+          <div className="mb-2 row">
             <label htmlFor="inputCurso" className="col-12 col-form-label">
               Curso
             </label>
@@ -153,7 +153,7 @@ export const Dropzone = ({ routeCurrent }) => {
               <input value={curso} onChange={e=>setCurso(e.target.value)} type="text" className="form-control" name="curso" id="inputCurso" />
             </div>
           </div>
-          <div className="mb-3 row">
+          <div className="mb-2 row">
             <label htmlFor="inputParalelo" className="col-12 col-form-label">
               Paralelo
             </label>
@@ -161,7 +161,7 @@ export const Dropzone = ({ routeCurrent }) => {
               <input value={paralelo} onChange={e=>setParalelo(e.target.value)} type="text" className="form-control" name="paralelo" id="inputParalelo" />
             </div>
           </div>
-          <div className="mb-3 row">
+          <div className="mb-2 row">
             <label htmlFor="inputJornada" className="col-12 col-form-label">
               Jornada
             </label>
@@ -169,7 +169,7 @@ export const Dropzone = ({ routeCurrent }) => {
               <input value={jornada} onChange={e=>setJornada(e.target.value)} type="text" className="form-control" name="jornada" id="inputJornada" />
             </div>
           </div>
-          <div className="mb-3 row">
+          <div className="mb-2 row">
             <label htmlFor="inputPeriodo" className="col-12 col-form-label">
               Periodo Lectivo
             </label>
@@ -190,7 +190,7 @@ export const Dropzone = ({ routeCurrent }) => {
         {excelData.length > 0 && (
           <div className="col-md-9">
             <Table excelData={excelData} />
-            <div className="d-flex align-items-center justify-content-center mt-4">
+            <div className="d-flex align-items-center justify-content-center mt-5">
               <button className="btn btn-primary" onClick={handlePrint}>
                 Imprimir
               </button>
