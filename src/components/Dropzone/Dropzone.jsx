@@ -8,10 +8,11 @@ import pdfMake from "pdfmake/build/pdfmake";
 import { getPdf as reporte2a3 } from "../../utils/reporte2a3";
 import { getPdf as reporte4 } from "../../utils/reporte4";
 import { getPdf as reporte5a6 } from "../../utils/reporte5a6";
+import { getPdf as reporte7 } from "../../utils/reporte7";
 import { getPdf as reporte8a9 } from "../../utils/reporte8a9";
 import { getPdf as reportebgu1a2 } from "../../utils/reportebgu1a2";
 import { getPdf as reporte10 } from "../../utils/reporte10";
-import { matriz_10, matriz_2_a_3, matriz_4, matriz_5_a_6, matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
+import { matriz_10, matriz_2_a_3, matriz_4, matriz_5_a_6, matriz_7, matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
 import { validJsonNoEmpty } from "../../utils/validators";
 pdfMake.vfs = vfs;
 
@@ -93,6 +94,10 @@ export const Dropzone = ({ routeCurrent }) => {
       case matriz_5_a_6:
         docDefinitionArray = reporte5a6(excelData,cabecera);
         zipFilename = "reportes-5-a-6.zip";
+        break;
+      case matriz_7:
+        docDefinitionArray = reporte7(excelData,cabecera);
+        zipFilename = "reportes-7.zip";
         break;
       case matriz_8_a_9:
         docDefinitionArray = reporte8a9(excelData,cabecera);
