@@ -4,7 +4,7 @@ import "./social.css";
 export const Socials = () => {
   return (
     <>
-      <a className="social" href="https://www.instagram.com/velkin13">
+      <a className="social" href="https://www.instagram.com/velkin13" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -17,7 +17,7 @@ export const Socials = () => {
         </svg>
         <span>Instragram</span>
       </a>
-      <a className="social" href="https://linkedin.com/in/velfin-velasquez">
+      <a className="social" href="https://linkedin.com/in/velfin-velasquez" target="_blank">
         <svg
           width="16"
           height="16"
