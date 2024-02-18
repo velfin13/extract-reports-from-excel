@@ -181,7 +181,7 @@ export const getPdf = (data = [], cabecera = {}) => {
         { text: "", margin: [0, 15] },
         {
           table: {
-            widths: ["*", "*", "*", "*","*","*", "*"],
+            widths: ["25%", "*", "*", "*","*","*", "*"],
 
             body: [
               [
