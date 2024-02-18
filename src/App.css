@@ -1,4 +1,4 @@
-.active-nav{
+.active-nav {
     background-color: rgba(207, 222, 235, 0.704) !important;
     color: black !important;
     border-radius: 5px;
@@ -11,4 +11,4 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-  }
+}

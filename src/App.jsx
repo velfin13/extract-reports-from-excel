@@ -12,6 +12,7 @@ import {
   matriz_5_a_6,
   matriz_7,
 } from "./utils/routes";
+import { Socials } from "./components/Socials/Socials";
 
 export const App = () => {
   let location = useLocation();
@@ -136,6 +137,7 @@ export const App = () => {
                 </NavLink>
               </li>
             </ul>
+            <Socials />
           </div>
         </div>
       </nav>
