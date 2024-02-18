@@ -233,13 +233,14 @@ export const getPdf = (data = [], cabecera = {}) => {
 
     var docDefinition = {
       content: [
-        { image: logo, width: 260, alignment: "right" },
+        { image: logo, width: 350, alignment: "right" },
+        { text: "", margin: [0, 10] },
         {
           text: "Reporte de Calificaciones",
           style: "header",
           alignment: "center",
         },
-        { text: "", margin: [0, 15] },
+        { text: "", margin: [0, 10] },
         {
           table: {
             widths: ["10%", "23.33%", "8%", "25.33%", "8%", "25.33%"],
@@ -268,10 +269,10 @@ export const getPdf = (data = [], cabecera = {}) => {
             ],
           },
         },
-        { text: "", margin: [0, 15] },
+        { text: "", margin: [0, 8] },
         {
           table: {
-            widths: ["25%", "*", "*", "*", "*", "*", "*", "*", "*"],
+            widths: ["20%", "*", "*", "*", "*", "*", "*", "*", "*"],
 
             body: [
               [

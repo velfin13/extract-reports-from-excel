@@ -263,7 +263,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       { },
       { 
         text: "__________________________________", 
-        margin: [0, 44, 0, 0],
+        margin: [0, 34, 0, 0],
         alignment: "center", 
         colSpan: 3,
         border: [false, false, false, false] 
@@ -291,13 +291,14 @@ export const getPdf = (data = [], cabecera = {}) => {
 
     var docDefinition = {
       content: [
-        { image: logo, width: 240, alignment: "right" },
+        { image: logo, width: 300, alignment: "right" },
+        { text: "", margin: [0, 5] },
         {
           text: "Reporte de Calificaciones",
           style: "header",
           alignment: "center",
         },
-        { text: "", margin: [0, 10] },
+        { text: "", margin: [0, 6] },
         {
           table: {
             widths: ["10%", "23.33%", "8%", "25.33%", "8%", "25.33%"],
