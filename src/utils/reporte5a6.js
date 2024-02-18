@@ -196,6 +196,41 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.estado_ponderacion, alignment: "center" },
     ]
 
+    const raya = [
+      { 
+        text: "__________________________________", 
+        margin: [0, 48, 0, 0],
+        alignment: "center", 
+        colSpan: 4,
+        border: [false, false, false, false] 
+      },
+      {},
+      {},
+      {},
+      { text: "",colSpan: 5, border: [false, false, false, false] },
+      { },
+      { },
+      { },
+      { },
+    ]
+    const tutor = [
+      { 
+        text: cabecera.tutor, 
+        margin: [0, 0, 0, 0],
+        alignment: "center", 
+        colSpan: 4,
+        border: [false, false, false, false] 
+      },
+      {},
+      {},
+      {},
+      { text: "",colSpan: 5, border: [false, false, false, false] },
+      { },
+      { },
+      { },
+      { },
+    ]
+
     var docDefinition = {
       content: [
         { image: logo, width: 260, alignment: "right" },
@@ -257,7 +292,9 @@ export const getPdf = (data = [], cabecera = {}) => {
               artistica,
               efisica,
               ingles,
-              footer
+              footer,
+              raya,
+              tutor
             ],
           },
         },
