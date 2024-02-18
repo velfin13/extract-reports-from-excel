@@ -207,15 +207,53 @@ export const getPdf = (data = [], cabecera = {}) => {
       { text: i.estado_ponderacion, alignment: "center" },
     ]
 
+    const raya = [
+      { 
+        text: "__________________________________", 
+        margin: [0, 8, 0, 0],
+        alignment: "center", 
+        colSpan: 4,
+        border: [false, false, false, false] 
+      },
+    
+      {},
+      {},
+      {},
+      { text: "",colSpan: 6, border: [false, false, false, false] },
+      { },
+      { },
+      { },
+      { },
+      { },
+    ]
+    const tutor = [
+      { 
+        text: cabecera.tutor, 
+        margin: [0, 0, 0, 0],
+        alignment: "center", 
+        colSpan: 4,
+        border: [false, false, false, false] 
+      },
+      {},
+      {},
+      {},
+      { text: "",colSpan: 6, border: [false, false, false, false] },
+      { },
+      { },
+      { },
+      { },
+      { },
+    ]
+
     var docDefinition = {
       content: [
-        { image: logo, width: 260, alignment: "right" },
+        { image: logo, width: 230, alignment: "right" },
         {
           text: "Reporte de Calificaciones",
           style: "header",
           alignment: "center",
         },
-        { text: "", margin: [0, 15] },
+        { text: "", margin: [0, 9] },
         {
           table: {
             widths: ["10%", "23.33%", "8%", "25.33%", "8%", "25.33%"],
@@ -244,7 +282,7 @@ export const getPdf = (data = [], cabecera = {}) => {
             ],
           },
         },
-        { text: "", margin: [0, 15] },
+        { text: "", margin: [0, 4] },
         {
           table: {
             widths: ["*", "*", "*", "*", "*", "*","*", "*", "*", "*"],
@@ -269,7 +307,9 @@ export const getPdf = (data = [], cabecera = {}) => {
               artistica,
               efisica,
               ingles,
-              footer
+              footer,
+              raya,
+              tutor
             ],
           },
         },
