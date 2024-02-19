@@ -74,71 +74,71 @@ export const getPdf = (data = [], cabecera = {}) => {
 
     const lenguaje = [
       { text: i.lenguaje.materia, alignment: "center" },
-      { text: i.lenguaje.trimestre1, alignment: "center" },
-      { text: i.lenguaje.trimestre2, alignment: "center" },
-      { text: i.lenguaje.trimestre3, alignment: "center" },
-      { text: i.subnivel, alignment: "center", },
-      { text: i.final, alignment: "center", },
+      { text: (i.lenguaje.trimestre1).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.lenguaje.trimestre2).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.lenguaje.trimestre3).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.subnivel).toFixed(cabecera.decimal), alignment: "center", },
+      { text: (i.final).toFixed(cabecera.decimal), alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
 
     const matematica = [
       { text: i.matematica.materia, alignment: "center" },
-      { text: i.matematica.trimestre1, alignment: "center" },
-      { text: i.matematica.trimestre2, alignment: "center" },
-      { text: i.matematica.trimestre3, alignment: "center" },
-      { text: i.subnivel, alignment: "center", },
-      { text: i.final, alignment: "center", },
+      { text: (i.matematica.trimestre1).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.matematica.trimestre2).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.matematica.trimestre3).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.subnivel).toFixed(cabecera.decimal), alignment: "center", },
+      { text: (i.final).toFixed(cabecera.decimal), alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
 
     const sociales = [
       { text: i.sociales.materia, alignment: "center" },
-      { text: i.sociales.trimestre1, alignment: "center" },
-      { text: i.sociales.trimestre2, alignment: "center" },
-      { text: i.sociales.trimestre3, alignment: "center" },
-      { text: i.subnivel, alignment: "center", },
-      { text: i.final, alignment: "center", },
+      { text: (i.sociales.trimestre1).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.sociales.trimestre2).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.sociales.trimestre3).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.subnivel).toFixed(cabecera.decimal), alignment: "center", },
+      { text: (i.final).toFixed(cabecera.decimal), alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
 
     const ciencias = [
       { text: i.ciencia.materia, alignment: "center" },
-      { text: i.ciencia.trimestre1, alignment: "center" },
-      { text: i.ciencia.trimestre2, alignment: "center" },
-      { text: i.ciencia.trimestre3, alignment: "center" },
-      { text: i.subnivel, alignment: "center", },
-      { text: i.final, alignment: "center", },
+      { text: (i.ciencia.trimestre1).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.ciencia.trimestre2).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.ciencia.trimestre3).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.subnivel).toFixed(cabecera.decimal), alignment: "center", },
+      { text: (i.final).toFixed(cabecera.decimal), alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
 
     const artistica = [
       { text: i.artistica.materia, alignment: "center" },
-      { text: i.artistica.trimestre1, alignment: "center" },
-      { text: i.artistica.trimestre2, alignment: "center" },
-      { text: i.artistica.trimestre3, alignment: "center" },
-      { text: i.subnivel, alignment: "center", },
-      { text: i.final, alignment: "center", },
+      { text: (i.artistica.trimestre1).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.artistica.trimestre2).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.artistica.trimestre3).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.subnivel).toFixed(cabecera.decimal), alignment: "center", },
+      { text: (i.final).toFixed(cabecera.decimal), alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
 
     const efisica = [
       { text: i.efisica.materia, alignment: "center" },
-      { text: i.efisica.trimestre1, alignment: "center" },
-      { text: i.efisica.trimestre2, alignment: "center" },
-      { text: i.efisica.trimestre3, alignment: "center" },
-      { text: i.subnivel, alignment: "center", },
-      { text: i.final, alignment: "center", },
+      { text: (i.efisica.trimestre1).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.efisica.trimestre2).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.efisica.trimestre3).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.subnivel).toFixed(cabecera.decimal), alignment: "center", },
+      { text: (i.final).toFixed(cabecera.decimal), alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
 
     const ingles = [
       { text: i.ingles.materia, alignment: "center" },
-      { text: i.ingles.trimestre1, alignment: "center" },
-      { text: i.ingles.trimestre2, alignment: "center" },
-      { text: i.ingles.trimestre3, alignment: "center" },
-      { text: i.subnivel, alignment: "center", },
-      { text: i.final, alignment: "center", },
+      { text: (i.ingles.trimestre1).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.ingles.trimestre2).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.ingles.trimestre3).toFixed(cabecera.decimal), alignment: "center" },
+      { text: (i.subnivel).toFixed(cabecera.decimal), alignment: "center", },
+      { text: (i.final).toFixed(cabecera.decimal), alignment: "center", },
       { text: i.estado, alignment: "center" },
     ]
 

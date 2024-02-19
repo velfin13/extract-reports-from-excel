@@ -31,15 +31,23 @@ export const Dropzone = ({ routeCurrent }) => {
   const [jornada, setJornada] = useState("");
   const [curso, setCurso] = useState("");
   const [periodo, setPeriodo] = useState("");
+  const [decimal, setDecimal] = useState(2);
 
   const onDrop = (acceptedFiles) => {
     if (acceptedFiles.length === 0) {
-      // No files were dropped
-      alert("Please drop a valid Excel file.");
+      alert("Ingresa un archivo de excel valido");
       return;
     }
 
     const file = acceptedFiles[0];
+    const fileName = file.name.toLowerCase();
+    const fileType = fileName.split('.').pop();
+
+    // Check if the file is an Excel file (xlsx or xls)
+    if (fileType !== 'xlsx' && fileType !== 'xls') {
+      alert("Ingresa un archivo de excel valido");
+      return;
+    }
 
     const reader = new FileReader();
 
@@ -75,7 +83,8 @@ export const Dropzone = ({ routeCurrent }) => {
       paralelo,
       curso,
       jornada,
-      periodo
+      periodo,
+      decimal
     }
 
     if (!validJsonNoEmpty(cabecera)) {
