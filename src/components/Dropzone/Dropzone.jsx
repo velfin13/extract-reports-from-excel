@@ -34,12 +34,19 @@ export const Dropzone = ({ routeCurrent }) => {
 
   const onDrop = (acceptedFiles) => {
     if (acceptedFiles.length === 0) {
-      // No files were dropped
-      alert("Please drop a valid Excel file.");
+      alert("Ingresa un archivo de excel valido");
       return;
     }
 
     const file = acceptedFiles[0];
+    const fileName = file.name.toLowerCase();
+    const fileType = fileName.split('.').pop();
+
+    // Check if the file is an Excel file (xlsx or xls)
+    if (fileType !== 'xlsx' && fileType !== 'xls') {
+      alert("Ingresa un archivo de excel valido");
+      return;
+    }
 
     const reader = new FileReader();
 
