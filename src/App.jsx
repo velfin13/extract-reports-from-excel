@@ -11,6 +11,7 @@ import {
   matriz_4,
   matriz_5_a_6,
   matriz_7,
+  reporte_bgu_3,
 } from "./utils/routes";
 import { Socials } from "./components/Socials/Socials";
 import { Footer } from "./components/Footer/Footer";
@@ -135,6 +136,19 @@ export const App = () => {
                   to={reporte_bgu_1_a_2}
                 >
                   Reporte BGU 1 a 2
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    if (isActive) {
+                      return "text-white nav-link active-nav";
+                    }
+                    return "text-white nav-link";
+                  }}
+                  to={reporte_bgu_3}
+                >
+                  Reporte BGU 3
                 </NavLink>
               </li>
             </ul>

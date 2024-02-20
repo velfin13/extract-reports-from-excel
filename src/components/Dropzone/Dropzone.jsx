@@ -11,8 +11,9 @@ import { getPdf as reporte5a6 } from "../../utils/reporte5a6";
 import { getPdf as reporte7 } from "../../utils/reporte7";
 import { getPdf as reporte8a9 } from "../../utils/reporte8a9";
 import { getPdf as reportebgu1a2 } from "../../utils/reportebgu1a2";
+import { getPdf as reportebgu3 } from "../../utils/reportebgu3";
 import { getPdf as reporte10 } from "../../utils/reporte10";
-import { matriz_10, matriz_2_a_3, matriz_4, matriz_5_a_6, matriz_7, matriz_8_a_9, reporte_bgu_1_a_2 } from "../../utils/routes";
+import { matriz_10, matriz_2_a_3, matriz_4, matriz_5_a_6, matriz_7, matriz_8_a_9, reporte_bgu_1_a_2, reporte_bgu_3 } from "../../utils/routes";
 import { validJsonNoEmpty } from "../../utils/validators";
 pdfMake.vfs = vfs;
 
@@ -117,6 +118,10 @@ export const Dropzone = ({ routeCurrent }) => {
       case reporte_bgu_1_a_2:
         docDefinitionArray = reportebgu1a2(excelData,cabecera);
         zipFilename = "reportes-bgu-1-a-2.zip";
+        break;
+      case reporte_bgu_3:
+        docDefinitionArray = reportebgu3(excelData,cabecera);
+        zipFilename = "reportes-bgu-3.zip";
         break;
 
       default:

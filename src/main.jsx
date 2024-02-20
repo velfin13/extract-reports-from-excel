@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import { matriz_10, matriz_2_a_3, matriz_4, matriz_5_a_6, matriz_7, matriz_8_a_9, reporte_bgu_1_a_2 } from './utils/routes.js';
+import { matriz_10, matriz_2_a_3, matriz_4, matriz_5_a_6, matriz_7, matriz_8_a_9, reporte_bgu_1_a_2, reporte_bgu_3 } from './utils/routes.js';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +39,10 @@ const router = createBrowserRouter([
   },
   {
     path: reporte_bgu_1_a_2,
+    element: <App />,
+  },
+  {
+    path: reporte_bgu_3,
     element: <App />,
   },
 ]);
