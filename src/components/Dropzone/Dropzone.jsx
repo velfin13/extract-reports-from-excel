@@ -193,7 +193,7 @@ export const Dropzone = ({ routeCurrent }) => {
             <input {...getInputProps()} />
             <p>
               Arrastra y suelta un archivo Excel o haz clic para seleccionar
-              uno.
+              uno!.
             </p>
           </div>
         </div>
