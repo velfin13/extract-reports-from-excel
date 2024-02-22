@@ -405,11 +405,11 @@ export const getPdf = (data = [], cabecera = {}) => {
             body: [
               [
                 { text: "Rendimiento Académico", bold: true, alignment: "center", },
-                { text: "Trimestre 1 (3)", bold: true, alignment: "center" },
-                { text: "Trimestre 2 (3)", bold: true, alignment: "center" },
-                { text: "Trimestre 3 (3)", bold: true, alignment: "center" },
-                { text: "Proyecto I.(1)", bold: true, alignment: "center" },
-                { text: "Subnivel (0.5)", bold: true, alignment: "center" },
+                { text: "Trimestre 1", bold: true, alignment: "center" },
+                { text: "Trimestre 2", bold: true, alignment: "center" },
+                { text: "Trimestre 3", bold: true, alignment: "center" },
+                { text: "Proyecto I", bold: true, alignment: "center" },
+                { text: "Subnivel", bold: true, alignment: "center" },
                 { text: "Promedio Simple", bold: true, alignment: "center", },
                 { text: "Estado", bold: true, alignment: "center" },
               ],

@@ -281,7 +281,7 @@ export const getPdf = (data = [], cabecera = {}) => {
                 { text: "Trimestre 2", bold: true, alignment: "center" },
                 { text: "Trimestre 3", bold: true, alignment: "center" },
                 { text: "Proyecto I", bold: true, alignment: "center" },
-                { text: "Promedio Total (T1 + T2 + T3 + PI)", bold: true, alignment: "center" },
+                { text: "Promedio Total", bold: true, alignment: "center" },
                 { text: "Ponderación (%)", bold: true, alignment: "center", },
                 { text: "Promedio Ponderado", bold: true, alignment: "center" },
                 { text: "Estado", bold: true, alignment: "center" },
