@@ -130,7 +130,6 @@ export const Dropzone = ({ routeCurrent }) => {
      const zip = new JSZip();
      docDefinitionArray.forEach((docDefinition, index) => {
        const pdf = pdfMake.createPdf(docDefinition);
-
        pdf.getBlob((blob) => {
          const filename = docDefinitionArray[index].filename;
          zip.file(filename, blob, { binary: true });

@@ -192,14 +192,15 @@ export const getPdf = (data = [], cabecera = {}) => {
       {},
       {},
       { text: "100%", alignment: "center", },
-      { text: i.suma_pro_ponderado, alignment: "center", },
+      { text: (i.suma_pro_ponderado).toFixed(2), alignment: "center", },
       { text: i.estado_ponderacion, alignment: "center" },
+
     ]
 
     const raya = [
       { 
         text: "__________________________________", 
-        margin: [0, 48, 0, 0],
+        margin: [0, 38, 0, 0],
         alignment: "center", 
         colSpan: 4,
         border: [false, false, false, false] 
@@ -233,14 +234,14 @@ export const getPdf = (data = [], cabecera = {}) => {
 
     var docDefinition = {
       content: [
-        { image: logo, width: 350, alignment: "right" },
-        { text: "", margin: [0, 10] },
+        { image: logo, width: 250, alignment: "right" },
+        { text: "", margin: [0, 5] },
         {
           text: "Reporte de Calificaciones",
           style: "header",
           alignment: "center",
         },
-        { text: "", margin: [0, 10] },
+        { text: "", margin: [0, 3] },
         {
           table: {
             widths: ["10%", "23.33%", "8%", "25.33%", "8%", "25.33%"],
@@ -272,7 +273,7 @@ export const getPdf = (data = [], cabecera = {}) => {
         { text: "", margin: [0, 8] },
         {
           table: {
-            widths: ["20%", "*", "*", "*", "*", "*", "*", "*", "*"],
+            widths: ["11%", "11%", "11%", "11%", "11%", "11%", "11%", "11%", "11%"],
 
             body: [
               [

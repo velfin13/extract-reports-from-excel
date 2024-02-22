@@ -204,7 +204,7 @@ export const getPdf = (data = [], cabecera = {}) => {
       {},
       {},
       { text: "100%", alignment: "center", },
-      { text: i.suma_pro_ponderado, alignment: "center", },
+      { text: (i.suma_pro_ponderado).toFixed(2), alignment: "center", },
       { text: i.estado_ponderacion, alignment: "center" },
     ]
 
@@ -287,7 +287,7 @@ export const getPdf = (data = [], cabecera = {}) => {
         { text: "", margin: [0, 4] },
         {
           table: {
-            widths: ["*", "*", "*", "*", "*", "*","*", "*", "*", "*"],
+            widths: ["10%", "10%", "10%", "10%", "10%", "10%","10%", "10%", "10%", "10%"],
 
             body: [
               [
